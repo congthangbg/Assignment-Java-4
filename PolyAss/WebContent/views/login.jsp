@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+    pageEncoding="utf-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>   
     
@@ -16,63 +16,35 @@
 				<ul class="nav nav-tabs">
 					<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
 					<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+					<li><a href="#ChangePassword" data-toggle="tab">Change Password</a></li>
+					<li><a href="#EditProfile" data-toggle="tab">Edit Profile</a></li>
+					<li><a href="#ForgotPassword" data-toggle="tab">Forgot Password </a></li>
+					
 				</ul>
 				<!-- Tab panes -->
 				<div class="tab-content">
 					<div class="tab-pane active" id="Login">
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="email1" placeholder="Name" type="text">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-10">
-									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
-										Submit
-									</button>
-									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
-								</div>
-							</div>
-						</form>
+
+					<jsp:include page="users/login.jsp"></jsp:include> 
 					</div>
+					
+					<!-- Registration -->
 					<div class="tab-pane" id="Registration">
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" placeholder="Name" type="text">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="email" placeholder="Email" type="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-12">
-									<input class="form-control" id="password" placeholder="Password" type="password">
-								</div>
-							</div>
-							<div class="row">							
-								<div class="col-sm-10">
-									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
-										Save &amp; Continue
-									</button>
-									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
-										Cancel</button>
-								</div>
-							</div>
-						</form>
+						<jsp:include page="users/Registration.jsp"></jsp:include>
+					</div>
+
+					<!-- EditProfile -->
+					<div class="tab-pane" id="EditProfile">
+						<jsp:include page="users/edit-profile.jsp"></jsp:include>
+					</div>
+					
+					<!-- Forgot Password -->
+					<div class="tab-pane" id="ForgotPassword">
+						<jsp:include page="users/forgot-password.jsp"></jsp:include>
+					</div>
+					<!-- #ChangePassword -->
+					<div class="tab-pane" id="ChangePassword">
+						<jsp:include page="users/change-password.jsp"></jsp:include>
 					</div>
 				</div>
 			</div>
