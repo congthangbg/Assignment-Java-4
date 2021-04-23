@@ -20,7 +20,7 @@
          <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="UserEditing" role="tabpanel" aria-labelledby="UserEditing-tab">
              
-               <form action="UserManagement" method="post" >
+               <form action="/PolyAss/admin/UserManagement" method="post" >
                   <div class="card">
                      <div class="card-body">
                         <div class="row">
@@ -62,12 +62,10 @@
                               </div></div>
                      </div>
                      <div class="card-footer text-muted text-center">
-                        <button id="btnCreate" class="btn btn-primary" formaction ="UserManagement/create">Create</button>
-                        <button class="btn btn-warning" formaction="UserManagement/update">Update</button>
-                        <button class="btn btn-danger" formaction="UserManagement/delete"
-                        data-toggle="modal" data-target="#exampleModal"
-                        >Delete</button>
-                        <button class="btn btn-info" formaction="UserManagement/reset">Reset</button>
+                        <button id="btnCreate" class="btn btn-primary" formaction ="/PolyAss/admin/UserManagement/create">Create</button>
+                        <button class="btn btn-warning" formaction="/PolyAss/admin/UserManagement/update">Update</button>
+                        <button class="btn btn-danger" id="btn_delete" >Delete</button>
+                        <button class="btn btn-info" formaction="/PolyAss/admin/UserManagement/reset">Reset</button>
                      </div>
                   </div>
                </form>
@@ -91,7 +89,7 @@
                      <td>${item.email }</td>
                      <td>${item.admin ? "Admin" : "User" }</td>
                      <td>
-                        <a href="UserManagement/edit?userId=${item.userId }"
+                        <a href="/PolyAss/admin/UserManagement/edit?userId=${item.userId }"
                         class="btn btn-warning"
                         > <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
                         <!-- 
@@ -105,15 +103,15 @@
                
 	<div style="width: 20%; margin: 0px auto;" >
 				<ul class="pagination">
-    		<li class="page-item">
-    			<a href="/PolyAss/UserManagement?page=${ page1 - 1 }"
+    		<li class="page-item" id="prev">
+    			<a href="/PolyAss/admin/UserManagement?page=${ page1 - 1 }"
     				class="page-link">Previous</a>
     		</li>
     		<li class="page-item">
     			<a class="page-link">${ page1 }</a>
     		</li>
-    		<li class="page-item">
-    			<a aria-selected="true" href="/PolyAss/UserManagement?page=${ page1 + 1 }"
+    		<li class="page-item" >
+    			<a aria-selected="true" href="/PolyAss/admin/UserManagement?page=${ page1 + 1 }"
     				id="next" class="page-link">Next</a>
     		</li>
     	</ul>
@@ -131,11 +129,15 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+       Bạn có chắc chắn muốn xóa?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <form action="/PolyAss/admin/UserManagement" method="post">
+        <a type="button" id="delete" class="btn btn-primary" 
+        href="/PolyAss/admin/UserManagement/delete?userId=${user.userId }" >Delete</a>
+        </form>
+        
       </div>
     </div>
   </div>
@@ -144,3 +146,13 @@
 
  -->
       </div>
+      <script type="text/javascript">
+      	console.log('aaaaa')
+      	document.getElementById('btn_delete').addEventListener('click', function (event) {
+      		event.preventDefault();
+      		console.log('-----', $("#exampleModal"))
+      		
+    		$("#exampleModal").modal();
+      		
+      	});
+    	

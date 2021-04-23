@@ -5,6 +5,9 @@
 
 <div class="col mt-4">
 <jsp:include page="/common/inform.jsp"></jsp:include>
+
+                        <h1 class="text-center"> <strong>Report Management</strong> </h1>
+                    
          <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                <a class="nav-link active" id="videoEditing-tab" data-toggle="tab" href="#videoEditing" role="tab"
@@ -87,13 +90,7 @@
                      <div class="col">
                         <div class="form-inline">
                            <div class="form-group">
-                              <label for="">Video title
-                                 <select name="" class="form-control ml-3" id="">
-                                    <option>Java Programming</option>
-                                    <option>Java Programming</option>
-                                 </select>
-                              </label>
-                              <button class="btn btn-info ml-3">Report</button>
+                              
                            </div>
                         </div>
                      </div>
@@ -107,6 +104,14 @@
                               <td>Receive Email</td>
                               <td>Sent Date</td>
                            </tr>
+                           <c:forEach var="item" items="${ listShare}">
+                           <tr>
+                              <td>${item.user.userId}</td>
+                              <td>${item.email}</td>
+                              <td>${item.email}</td>
+                              <td>${item.shareDate}</td>
+                           </tr>
+                          </c:forEach>
                         </table>
                      </div>
                   </div>

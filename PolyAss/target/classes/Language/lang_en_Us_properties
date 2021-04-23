@@ -1,0 +1,13 @@
+menu.home = Home
+menu.user = User Management
+menu.video = Video Management
+menu.report= Report
+menu.myaccount= My Account
+menu.english=English
+menu.vietnamese=Vietnamese
+
+home.content = List Product
+user.content = User Management
+video.content=Video Management
+report.conten= Report
+myaccount.content=My Account

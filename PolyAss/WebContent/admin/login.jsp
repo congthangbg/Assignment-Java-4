@@ -36,7 +36,7 @@
 									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
 										Submit
 									</button>
-									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
+									<a class="for-pwd" href="/PolyAss/ForgotPassword">Forgot your password?</a>
 								</div>
 							</div>
 						</form>

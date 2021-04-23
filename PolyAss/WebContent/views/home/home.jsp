@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="col">
+<h1 class="text-center mt-4">Danh Sách Sản Phẩm</h1>
+<jsp:include page="/common/inform.jsp"></jsp:include>
 	<div class="row p-2">
 		<c:forEach var="item" items="${listVideo }">
 			<div class="col-3 mt-4 ">
@@ -16,9 +18,9 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<a href="LikeVideo?videoId=${item.videoId }"
+						<a href="/PolyAss/user/LikeVideoUser?videoId=${item.videoId }"
 							class="btn btn-success">Like</a> <a
-							href="ShareVideo?videoId=${item.videoId }" class="btn btn-info">Share</a>
+							href="/PolyAss/user/ShareVideoUser?videoId=${item.videoId }" class="btn btn-info">Share</a>
 					</div>
 				</div>
 			</div>
@@ -29,11 +31,11 @@
 			<div style="width: 20%; margin: 0px auto;">
 				<ul class="pagination">
 					<li class="page-item"><a
-						href="/PolyAss/HomeAdminServlet?page=${ page1 - 1 }"
+						href="/PolyAss/HomePageServlet?page=${ page1 - 1 }"
 						class="page-link">Previous</a></li>
 					<li class="page-item"><a class="page-link">${ page1 }</a></li>
 					<li class="page-item"><a aria-selected="true"
-						href="/PolyAss/HomeAdminServlet?page=${ page1 + 1 }" id="next"
+						href="/PolyAss/HomePageServlet?page=${ page1 + 1 }" id="next"
 						class="page-link">Next</a></li>
 				</ul>
 			</div>

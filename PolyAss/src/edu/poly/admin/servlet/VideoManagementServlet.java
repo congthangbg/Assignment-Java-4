@@ -25,8 +25,8 @@ import edu.poly.utils.CheckData;
  * Servlet implementation class VideoManagementServlet
  */
 @MultipartConfig
-@WebServlet({"/VideoManagement","/VideoManagement/create","/VideoManagement/update",
-	"/VideoManagement/delete","/VideoManagement/edit","/VideoManagement/reset"})
+@WebServlet({"/admin/VideoManagement","/admin/VideoManagement/create","/admin/VideoManagement/update",
+	"/admin/VideoManagement/delete","/admin/VideoManagement/edit","/admin/VideoManagement/reset"})
 public class VideoManagementServlet extends HttpServlet {
 	private VideoDao videoDao;
 	

@@ -4,6 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="col">
+<h1 class="text-center mt-4">Danh Sách Sản Phẩm</h1>
+<jsp:include page="/common/inform.jsp"></jsp:include>
 	<div class="row p-2">
 		<c:forEach var="item" items="${listVideo }">
 			<div class="col-3 mt-4 ">
@@ -16,9 +18,10 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<a href="LikeVideo?videoId=${item.videoId }"
-							class="btn btn-success">Like</a> <a
-							href="ShareVideo?videoId=${item.videoId }" class="btn btn-info">Share</a>
+				
+						<a href="admin/LikeVideoAdmin?videoId=${item.videoId }"
+							class="btn btn-success">Like</a> 
+						<a href="admin/ShareVideoAdmin?videoId=${item.videoId }" class="btn btn-info">Share</a>
 					</div>
 				</div>
 			</div>

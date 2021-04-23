@@ -41,4 +41,5 @@ public class VideoDao extends AbstractEntityDao<Video>{
 		return query.getResultList();
 		
 	}
+
 }

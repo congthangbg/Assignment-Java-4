@@ -26,8 +26,8 @@ import edu.poly.utils.HibernateUtils;
 /**
  * Servlet implementation class UserManagementServlet
  */
-@WebServlet({ "/UserManagement", "/UserManagement/create", "/UserManagement/update", "/UserManagement/delete",
-		"/UserManagement/edit", "/UserManagement/reset" })
+@WebServlet({ "/admin/UserManagement", "/admin/UserManagement/create", "/admin/UserManagement/update", "/admin/UserManagement/delete",
+		"/admin/UserManagement/edit", "/admin/UserManagement/reset" })
 public class UserManagementServlet extends HttpServlet {
 	private UserDao userDao;
 
@@ -77,8 +77,8 @@ public class UserManagementServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("error", "Error" + e.getMessage());
 		}
-		//PageInfo.prepareAndForward(request, response, PageType.USER_MANAGEMENT_PAGE);
-		response.sendRedirect(request.getContextPath()+"/UserManagement");
+		PageInfo.prepareAndForward(request, response, PageType.USER_MANAGEMENT_PAGE);
+		//response.sendRedirect(request.getContextPath()+"/UserManagement");
 	}
 
 
@@ -91,7 +91,7 @@ public class UserManagementServlet extends HttpServlet {
 		try {
 			String userId=request.getParameter("userId");
 			User user= userDao.findById(userId);
-			System.out.println(user);
+
 			request.setAttribute("user", user);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,7 +102,7 @@ public class UserManagementServlet extends HttpServlet {
 	private void create(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		User user = new User();
 		BeanUtils.populate(user, request.getParameterMap());
-		response.setContentType("text/plain");
+		
 		boolean check = true;
 		try {
 			if (CheckData.isNull(request.getParameter("userId"))) {
@@ -131,12 +131,9 @@ public class UserManagementServlet extends HttpServlet {
 				}
 			}
 			if (check == true) {
-				PrintWriter out=response.getWriter();
 				UserDao dao = new UserDao();
 				dao.insert(user);
-				out.print(user); 
-				request.setAttribute("user", user);
-				System.out.println(user);
+				//request.setAttribute("user", user);
 				request.setAttribute("message", "Insert success!!!");
 			}
 
@@ -154,7 +151,7 @@ public class UserManagementServlet extends HttpServlet {
 		try {
 			if (CheckData.isNull(request.getParameter("userId"))) {
 				check = false;
-				request.setAttribute("error", "Chưa nhập UserId !");
+				request.setAttribute("error", "Chưa chọn video để sửa !");
 			} else if (CheckData.isNull(request.getParameter("fullname"))) {
 				check = false;
 				request.setAttribute("user", user);
@@ -168,7 +165,6 @@ public class UserManagementServlet extends HttpServlet {
 				request.setAttribute("user", user);
 				request.setAttribute("error", "Chưa nhập email !");
 			}
-			List<User> list = userDao.findAll2();
 
 			if (check == true) {
 				UserDao dao = new UserDao();

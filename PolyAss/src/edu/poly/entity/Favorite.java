@@ -21,7 +21,7 @@ public class Favorite implements Serializable{
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
 
-@ManyToOne
+@ManyToOne(fetch = FetchType.LAZY)
 @JoinColumn(name = "UserId")
 private User user;
 
@@ -74,11 +74,6 @@ public Date getLikeDate() {
 
 public void setLikeDate(Date likeDate) {
 	this.likeDate = likeDate;
-}
-
-@Override
-public String toString() {
-	return "Favorite [id=" + id + ", user=" + user + ", video=" + video + ", likeDate=" + likeDate + "]";
 }
 
 
