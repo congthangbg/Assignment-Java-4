@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.poly.common.CookieUtils;
 import edu.poly.common.PageInfo;
 import edu.poly.common.PageType;
+import edu.poly.common.SessionUtils;
 import edu.poly.dao.VideoDao;
 import edu.poly.entity.Video;
 
@@ -21,6 +23,7 @@ import edu.poly.entity.Video;
 public class HomePageServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		try {
 			VideoDao videoDao=new VideoDao();
 			String pageStr = request.getParameter("page");
@@ -45,6 +48,7 @@ public class HomePageServlet extends HttpServlet {
 		}
 		
 		PageInfo.prepareAndForwardView(request, response, PageType.SITE_HOME_PAGE);
+	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

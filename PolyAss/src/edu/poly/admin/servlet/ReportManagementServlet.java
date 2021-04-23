@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import edu.poly.common.PageInfo;
 import edu.poly.common.PageType;
 import edu.poly.dao.FavoriteDao;
+import edu.poly.dao.ShareDao;
 import edu.poly.dao.VideoDao;
 import edu.poly.domain.FavoriteListVideoReport;
 import edu.poly.domain.FavoriteUserReport;
 import edu.poly.entity.Favorite;
+import edu.poly.entity.Share;
 import edu.poly.entity.User;
 import edu.poly.entity.Video;
 
-@WebServlet("/ReportManagementServlet")
+@WebServlet("/admin/ReportManagementServlet")
 public class ReportManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -49,17 +51,19 @@ public class ReportManagementServlet extends HttpServlet {
 			}
 			FavoriteDao fdao=new FavoriteDao();
 			//FavoriteUserReport
-			List<FavoriteUserReport> list=fdao.reportFavoriteUser(videoUserId);
+			List<FavoriteUserReport> favlist=fdao.reportFavoriteUser(videoUserId);
 			
 			//FavoriteListVideoReport
 			List<FavoriteListVideoReport> listVRP=fdao.reportFavoriteListVideo();
 			
 			request.setAttribute("listVRP", listVRP);
-			request.setAttribute("favList", list);
+			request.setAttribute("favList", favlist);
 			request.setAttribute("vList", vlist);
 			request.setAttribute("videoUserId", videoUserId);
 			
-		
+			ShareDao shareDao=new ShareDao();
+			List<Share> listShare=shareDao.findAll();
+			request.setAttribute("listShare", listShare);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

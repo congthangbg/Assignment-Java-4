@@ -3,30 +3,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 
-
-               <form action="ChangePassword" method="post">
+ <div class="offset-3 col-6 mt-4">
+               <form action="user/ChangePassword" method="post">
                   <div class="card">
+                  <div class="card">
+                     <div class="card-header">
+                        Change Password
+                     </div>
                      <div class="card-body">
-                     <jsp:include page="/common/inform.jsp"></jsp:include>
+                      <jsp:include page="/common/inform.jsp"></jsp:include>
                         <div class="row">
                            <div class="col">
                               <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" value="${username }" id="username" aria-describedby="usernameHid" placeholder="Username">
+                                <label for="username">UserId</label>
+                                <input type="text" class="form-control" name="userId" value="${userId }" id="userId" aria-describedby="usernameHid" >
                               </div>
                               <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" name="password" id="password" aria-describedby="passwordHid" placeholder="Password">
+                                <input type="password" class="form-control" value="${form.password }" name="password" id="password" aria-describedby="passwordHid" >
                               </div>
                            </div>
                            <div class="col">
                               <div class="form-group">
-                                <label for="curentPassword">Current Password</label>
-                                <input type="text" class="form-control" name="curentPassword" id="curentPassword" aria-describedby="curentPassword" placeholder="current password">
+                                <label for="currentPassw">Current Password</label>
+                                <input type="password" class="form-control" name="currentPassw" value="${form.currentPassw }" id="currentPassw" aria-describedby="currentPassw" >
                               </div>
                               <div class="form-group">
-                                 <label for="confirmPassword">Confirm Password</label>
-                                 <input type="text" class="form-control" name="confirmPassword" id="confirmPassword" aria-describedby="confirmPassword" placeholder="Confirm password">
+                                 <label for="confirmPassw">Confirm Password</label>
+                                 <input type="password" class="form-control" name="confirmPassw"  id="confirmPassw" aria-describedby="confirmPassw" >
                                </div>
                            </div>
                         </div>
@@ -36,3 +40,4 @@
                      </div>
                   </div>
                </form>
+               </div>

@@ -19,16 +19,21 @@ public class PageInfo {
 		pageRoute.put(PageType.REPORT_MANAGEMENT_PAGE, new PageInfo("Report Management", "/admin/reports/reports.jsp", null));
 		pageRoute.put(PageType.VIDEO_MANAGEMENT_PAGE, new PageInfo("Video Management", "/admin/videos/videos.jsp", null));
 		pageRoute.put(PageType.HOME_MANAGEMENT_PAGE, new PageInfo("Home Management", "/admin/home/home.jsp", null));
+		pageRoute.put(PageType.CHANGEPASS_MANAGEMENT_PAGE, new PageInfo("Change Password", "/admin/users/change-password.jsp", null));
+		pageRoute.put(PageType.EDITPROFILE_MANAGEMENT_PAGE, new PageInfo("Edit Profile", "/admin/users/edit-profile.jsp", null));
+		pageRoute.put(PageType.FORGOT_PASSWORD_MANAGEMENT_PAGE, new PageInfo("ForGot Password", "/admin/users/forgot-password.jsp", null));
+		pageRoute.put(PageType.REGISTRATION_MANAGEMENT_PAGE, new PageInfo("Resgistraion", "/admin/users/registraion.jsp", null));
+		pageRoute.put(PageType.SHARE_VIDEO_MANAGEMENT, new PageInfo("Resgistraion", "/admin/videos/share.jsp", null));
 		
 		pageRoute.put(PageType.SITE_HOME_PAGE, new PageInfo("Home Page", "/views/home/home.jsp", null));
-		pageRoute.put(PageType.SITE_LOGIN_PAGE, new PageInfo("Login Page", "/site/users/login.jsp", null));
-		pageRoute.put(PageType.SITE_REGISTATION_PAGE, new PageInfo("Registration Page", "/site/users/Registration.jsp", null));
-		pageRoute.put(PageType.SITE_CHANGE_PASSWORD_PAGE, new PageInfo("Change Password Page", "/site/users/change-password.jsp", null));
+		pageRoute.put(PageType.SITE_LOGIN_PAGE, new PageInfo("Login Page", "/views/users/login.jsp", null));
+		pageRoute.put(PageType.SITE_REGISTATION_PAGE, new PageInfo("Registration Page", "/views/users/Registration.jsp", null));
+		pageRoute.put(PageType.SITE_CHANGE_PASSWORD_PAGE, new PageInfo("Change Password Page", "/views/users/change-password.jsp", null));
 		pageRoute.put(PageType.SITE_EDIT_PROFILE_PAGE, new PageInfo("Edit Profile", "/views/users/edit-profile.jsp", null));
-		pageRoute.put(PageType.SITE_FORGOT_PASSWORD_PAGE, new PageInfo("Forgot Password Page", "/site/users/forgot-password.jsp", null));
-		pageRoute.put(PageType.SITE_DETAIL_PAGE, new PageInfo("Detail Page", "/site/videos/detail.jsp", null));
-		pageRoute.put(PageType.SITE_SHARE_PAGE, new PageInfo("Share Page", "/site/videos/share.jsp", null));
-		pageRoute.put(PageType.SITE_FAVORITE_PAGE, new PageInfo("Favorite Page", "/site/videos/favorite.jsp", null));
+		pageRoute.put(PageType.SITE_FORGOT_PASSWORD_PAGE, new PageInfo("Forgot Password Page", "/views/users/forgot-password.jsp", null));
+		pageRoute.put(PageType.SITE_DETAIL_PAGE, new PageInfo("Detail Page", "/views/videos/detail.jsp", null));
+		pageRoute.put(PageType.SITE_SHARE_PAGE, new PageInfo("Share Page", "/views/videos/share.jsp", null));
+		pageRoute.put(PageType.SITE_FAVORITE_PAGE, new PageInfo("Favorite Page", "/views/videos/my_favorite.jsp", null));
 	}
 	
 	//prepareAndForward cho phép chuyển nội dung cho trang layout.jsp 

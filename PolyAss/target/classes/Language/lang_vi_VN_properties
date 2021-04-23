@@ -1,0 +1,13 @@
+menu.home = Trang chu
+menu.user = Quản lý người dùng
+menu.video = Quản lý video
+menu.report= Báo cáo
+menu.myaccount= Tài khoản
+menu.english=Tiếng Anh
+menu.vietnamese=Tiếng Việt
+
+home.content = Danh Sách Sản Phẩm
+user.content = Quản lý người dùng
+video.content=Quản lý video
+report.conten=Báo cáo
+myaccount.content=Tài khoản

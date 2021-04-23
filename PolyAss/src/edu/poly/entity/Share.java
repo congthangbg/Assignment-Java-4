@@ -24,11 +24,11 @@ public class Share  implements Serializable{
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id;
 
-@ManyToOne
+@ManyToOne(fetch = FetchType.LAZY)
 @JoinColumn(name = "UserId")
 private User user;
 
- @ManyToOne
+ @ManyToOne(fetch = FetchType.LAZY)
  @JoinColumn(name = "VideoId")
 private Video video;
 
@@ -38,11 +38,7 @@ private Video video;
 @Column(name = "ShareDate")
  private Date shareDate;
 
-@Override
-public String toString() {
-	return "Share [id=" + id + ", user=" + user + ", video=" + video + ", email=" + email + ", shareDate=" + shareDate
-			+ "]";
-}
+
 public Share() {
 }
 public Share(Integer id, User user, Video video, String email, Date shareDate) {

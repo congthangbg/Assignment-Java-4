@@ -104,40 +104,6 @@
 		  $('#myInput').trigger('focus')
 		})
 	</script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#btnCreate').click(function () {
-			var userId=$('#userId').val();
-			var fullname=$('#fullname').val();
-			var password=$('#password').val();
-			var email=$('#email').val();
-			var active=$('#active').val();
-			var active1=$('#active1').val();
-			$.ajax({
-				type : 'POST',
-				data:{
-					userId:userId,
-					fullname:fullname,
-					password:password,
-					email:email,
-					active:active,
-					active1:active1
-					},
-				url: 'UserManagement',
-				success : function (result) {
-					$('#result1').html(result);
-				}
-			});
-		});
-	});
-	</script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#next').click(function (event) {
-			event.preventdefault();
-			console.log("đâsad")
-		});
-	});
-	</script>
+
 </body>
 </html>

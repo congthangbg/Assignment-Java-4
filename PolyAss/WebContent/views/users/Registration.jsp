@@ -3,9 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
 
+<div class="col-8 offset-2">
             <form action="" method="post" role="form" class="form-horizontal">
             ${Routes.SITE_REGISTRATION_SHOW }
                <div class="card">
+               <div class="card-header">
+                     <b>Registrations</b>
+                  </div>
                   <div class="card-body">
                   <jsp:include page="/common/inform.jsp"></jsp:include>
                    
@@ -13,7 +17,7 @@
                        <div class="col">
                         <div class="form-group">
                           <label for="username">Username</label>
-                          <input type="text" value="${user.username }" class="form-control" name="username" id="username" aria-describedby="usernameHid" placeholder="Username">
+                          <input type="text" value="${user.userId }" class="form-control" name="userId" id="userId" aria-describedby="userIdHid" placeholder="UserId">
                         </div>
                         <div class="form-group">
                            <label for="fullname">Fullname</label>
@@ -37,3 +41,4 @@
                   </div>
                </div>
             </form>
+              </div>

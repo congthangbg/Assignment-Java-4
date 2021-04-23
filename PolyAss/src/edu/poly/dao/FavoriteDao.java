@@ -11,6 +11,7 @@ import edu.poly.domain.FavoriteListVideoReport;
 import edu.poly.domain.FavoriteUserReport;
 import edu.poly.entity.Favorite;
 import edu.poly.entity.User;
+import edu.poly.entity.Video;
 import edu.poly.utils.HibernateUtils;
 
 public class FavoriteDao extends AbstractEntityDao<Favorite>{
@@ -27,7 +28,7 @@ public class FavoriteDao extends AbstractEntityDao<Favorite>{
 			TypedQuery<FavoriteUserReport> query=session.createQuery(hql,FavoriteUserReport.class);
 			query.setParameter("videoId", videoId);
 		return  query.getResultList();
-	}
+	}	
 	public List<FavoriteListVideoReport> reportFavoriteListVideo(){
 		Session session=HibernateUtils.getSession();
 		String jpql="select new edu.poly.domain.FavoriteListVideoReport( f.video.title,count(f) ,min(f.likeDate),max(f.likeDate)) "
@@ -35,5 +36,31 @@ public class FavoriteDao extends AbstractEntityDao<Favorite>{
 			TypedQuery<FavoriteListVideoReport> query=session.createQuery(jpql, FavoriteListVideoReport.class);
 		
 		return query.getResultList();
+	}
+	public List<Favorite> findAll(){
+		Session session=HibernateUtils.getSession();
+		String hql="FROM Favorite";
+		TypedQuery<Favorite> query=session.createQuery(hql,Favorite.class);
+		
+		return query.getResultList();
+		
+	}
+	public List<Favorite> findAllLike(String id,int offset,int limit){
+		Session session=HibernateUtils.getSession();
+		try {
+			String hql="FROM Favorite f WHERE f.user.userId=:userId";
+			TypedQuery<Favorite> query=session.createQuery(hql,Favorite.class);
+			query.setParameter("userId", id);
+			query.setFirstResult(offset);
+			query.setMaxResults(limit);
+			return query.getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+			throw e;
+		}
+		
+		
 	}
 }
